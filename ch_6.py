@@ -11,23 +11,28 @@ def main():
         code.write(response.content)
 
     channel_zip = zipfile.ZipFile('data/channel.zip')
-    # print([i.filename for i in channel_zip.filelist])
-    # print(channel_zip.read('readme.txt'))
-
-    # for i in channel_zip.filelist:
-    #     if '90052' in str(i):
-    #         print(channel_zip.open(i).read())
 
     nothing = '90052'
-    # next_nothing = ''.join([i for i in response.text if i.isnumeric()])
-    response = str(channel_zip.open('{}.txt'.format(nothing)).read())
-    print(response)
+
+    arr_nothings = []
     while 'Next nothing' in str(channel_zip.open('{}.txt'.format(nothing)).read()):
         response = channel_zip.open('{}.txt'.format(nothing)).read()
-        print(nothing)
-        print(response)
-        nothing = ''.join([i for i in response if i.isnumeric()])
+        arr_nothings.append(nothing)
 
+        nothing = ''.join([i for i in response.decode('utf8') if i.isnumeric()])
+
+    arr_result = []
+
+    for i in arr_nothings:
+        for info in channel_zip.infolist():
+            if str(info.filename).strip('.txt') == str(i):
+                arr_result.append(info.comment.decode())
+
+    # hockey = ''.join(arr_result)
+    # print(hockey)
+
+    result = ''.join(alpha for alpha in dict.fromkeys(arr_result).keys() if alpha.isalpha())
+    print(result)
 
 
 if __name__ == '__main__':
