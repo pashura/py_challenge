@@ -1,7 +1,7 @@
 # py_challenge
 http://www.pythonchallenge.com/
 
-My solution of pythonchallenge tasks
+My solution of python challenge tasks
 
 
 ##Setting Up Locally
@@ -10,10 +10,10 @@ My solution of pythonchallenge tasks
 2. Set virtual environment for required packages:
 
 ```bash
-    python virtualenv env
+    python3 -m virtualenv env
     source env/bin/activate
 ```
 3. Install required packages
 ```bash
-    pip install -r requirements-local.pip
+    pip install -r requirements.txt
 ```

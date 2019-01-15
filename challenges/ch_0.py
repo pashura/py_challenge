@@ -2,9 +2,9 @@
 
 
 def main():
-    result = 2**38
+    result = 2 ** 38
     print(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
