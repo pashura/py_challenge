@@ -2,7 +2,7 @@ import requests
 import time
 from telegram.ext import Updater
 
-updater = Updater(token="425230215:AAFeRok-eTd04tefgd4iETwq5awsenEKtsI")
+updater = Updater(token="here is a token")
 dispatcher = updater.dispatcher
 
 # body = {
